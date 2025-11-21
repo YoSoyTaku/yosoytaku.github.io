@@ -1,254 +1,294 @@
 <!DOCTYPE html>
 <html lang="es">
-
-    <head>
-    <link rel="icon" href="tp.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="tp.ico" type="image/x-icon">
-</head>
-
 <head>
-    <meta charset="UTF-8">
-    <title>TakuProjects</title>
-    <style>
-        body {
-            background-color: rgba(29, 29, 29, 0.7);
-            color: #ffffff;
-            font-family: 'Press Start 2P', cursive;
-            text-align: center;
-            background-image: url('bg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            animation: float 3s ease-in-out infinite;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        .floating-container {
-            animation: float 3s ease-in-out infinite;
-        }
-        .container {
-            padding: 20px;
-            width: 80%;
-            border: 5px solid #ff6600;
-            background-color: rgba(2, 2, 2, 0.3);
-            border-radius: 15px;
-            box-shadow: 20px 20px 20px #00000077;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #ffffff;
-            text-shadow: 10px 5px 12px #000;
-            transition: transform 0.4s ease;
-            position: relative;
-            font-family: 'Press Start 2P', cursive;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-        p {
-            font-size: 1.2em;
-            text-shadow: 3px 3px #000;
-            transition: transform 0.4s ease;
-        }
-        .pixel-art {
-            display: inline-block;
-            width: 150px;
-            height: 150px;
-            background-image: url('janedoe.gif');
-            background-size: cover;
-            border-radius: 50%;
-            box-shadow: 10px 5px 20px #000000;
-            border: 5px solid #ff6600; 
-            margin-bottom: 20px;
-            transition: transform 0.4s ease; 
-        }
-        .pixel-art:hover {
-            transform: scale(1.05); 
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            color: #fff;
-            background-color: #ff6600;
-            text-decoration: none;
-            border-radius: 5px;
-            text-shadow: 3px 3px 3px #000;
-            box-shadow: 5px 10px 15px #00000077;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .button:hover {
-            background-color: #cecece;
-            transform: scale(1.1);
-        }
-        .button:active {
-            transform: scale(0.9);
-        }
-        .icon {
-            margin-right: 8px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .modal-content {
-            background-color: rgb(0, 0, 0, 0.5);
-            margin: 20% auto;
-            padding: 20px;
-            border: 1px solid #ff6600;
-            box-shadow: 10px 10px 20px #00000077;
-            width: 400px; 
-            border-radius: 15px;
-            text-align: center;
-            animation: bounceIn 0.6s ease; 
-        }
-        .close {
-            color: rgb(170, 170, 170);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 2px 2px #000;
-        }
-        .close:hover,
-        .close:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .confirm-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            color: #fff;
-            background-color: #ff6600;
-            text-decoration: none;
-            border-radius: 5px;
-            font-family: 'Press Start 2P', cursive;
-            text-shadow: 3px 3px 3px #000;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .confirm-button:hover {
-            background-color: #cecece;
-            transform: scale(1.1);
-        }
-        .confirm-button:active {
-            transform: scale(0.9);
-        }
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-        .squeeze:hover {
-            transform: scale(1.05);
-        }
-        @keyframes bounceIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        .hidden {
-            display: none;
-        }
-        .credit {
-            font-size: 0.8em;
-            color: #ffffff;
-            text-shadow: 3px 3px #000;
-            transition: transform 0.4s ease; 
-            margin-top: 20px; 
-            margin-bottom: 0;
-        }
-        .credit:hover {
-            transform: scale(1.05); 
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>YoSoyTaku</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome y font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <style>
+    /* ========== RESET + VARIABLES ========== */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg-page: #000000;
+  --page-alpha: 0.85;
+  --panel-bg-1: hsl(0, 2%, 60%);
+  --panel-bg-2: #535151;
+  --panel-border: #363636;
+  --panel-border-2: #585757;
+  --accent: #ffffff;
+  --text: #ffffff;
+  --muted: #fffcfc;
+  --shadow-dark: rgba(0, 0, 0, 0.7);
+  --pixel-grain: rgba(0, 0, 0, 0.02);
+}
+
+/* básico */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  -webkit-font-smoothing: none;
+}
+body { 
+  background: linear-gradient(180deg, rgba(220,220,220,var(--page-alpha)) 0%, rgba(196,196,196,var(--page-alpha)) 100%);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* ========== TARJETA PRINCIPAL ========== */
+.container {
+  width: 80%;
+  max-width: none;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    var(--panel-bg-1) 0%,
+    var(--panel-bg-2) 100%
+  );
+  border: 6px solid var(--panel-border);
+  box-shadow: 6px 6px 0 0 var(--panel-border-2),
+    14px 14px 20px var(--shadow-dark);
+  position: relative;
+  overflow: hidden;
+  margin: 0 16px; /* margen lateral */
+  box-sizing: border-box;
+}
+
+/* overlay pixel */
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 1px,
+      var(--pixel-grain) 1px 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 1px,
+      var(--pixel-grain) 1px 2px
+    );
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+/* título */
+h1 {
+  margin: 0 0 10px 0;
+  color: var(--text);
+  font-size: 1.9rem;
+  text-shadow: 3px 3px 0 #000, 6px 4px 0 #000;
+  letter-spacing: 0.02em;
+}
+
+/* texto */
+p {
+  margin: 10px 0 18px;
+  font-size: 1.02rem;
+  color: var(--text);
+  text-shadow: 2px 2px #000;
+}
+
+/* ========== AVATAR PIXELADO ========== */
+.pixel-art {
+  width: 150px;
+  height: 150px;
+  margin: 6px auto 18px;
+  border-radius: 50%;
+  background-image: url("pfp.gif");
+  background-size: cover;
+  background-position: center;
+  border: 6px solid var(--panel-border);
+  filter: grayscale(20%);
+  box-shadow: 6px 6px 0 0 var(--panel-border-2),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.25);
+  image-rendering: pixelated;
+  transition: transform 140ms cubic-bezier(0.22, 0.9, 0.35, 1), filter 180ms;
+}
+.pixel-art:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter: grayscale(30%);
+}
+
+/* ========== BOTONES PIXEL ========== */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.button {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 18px 10px;
+  padding-left: 22px;
+  background: var(--panel-border-2);
+  border-radius: 6px;
+  border: 2px solid #000;
+  box-shadow: 0 4px 0 0 #000, 4px 8px 12px rgba(0, 0, 0, 0.45);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-family: "Press Start 2P", cursive;
+  color: var(--text);
+  /* sombra pixel tipo título */
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
+  transition: transform 120ms ease, background-color 120ms;
+}
+
+/* pixel bevel */
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.button::before {
+  transform: translate(-4px, -4px);
+  border: 2px solid rgba(255, 255, 255, 0.06);
+}
+.button::after {
+  transform: translate(4px, 4px);
+  border: 2px solid rgba(0, 0, 0, 0.45);
+}
+
+/* hover y active */
+.button:hover {
+  background: var(--accent);
+  color: #000;
+  text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  transform: translateY(-4px);
+}
+.button:active {
+  transform: translateY(0);
+}
+
+.button .icon {
+  margin-right: 10px;
+  opacity: 0.95;
+}
+
+/* ========== FOOTER ========== */
+.credits {
+  margin-top: 20px;
+  color: var(--muted);
+}
+.credits a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: bold;
+}   
+.credits a:hover {
+  text-decoration: underline;
+}
+.small-text {
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+/* accesibilidad */
+.button:focus,
+.pixel-art:focus,
+.container:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 20px 12px;
+    border-radius: 14px;
+    margin: 0 12px;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .pixel-art {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
+  .button {
+    width: 100%;
+    max-width: 270px;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  .button {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+  </style>
 </head>
 <body>
-    <div id="mainContent" class="container fade-in floating-container">
-        <h1 class="squeeze">YoSoyTaku</h1>
-        <div class="pixel-art"></div>
-        <p class="squeeze">Hey que tal! :D</p>
-        <p class="squeeze">Bienvenido a mi web de redes sociales.</p>
-        <div>
-            <a href="https://www.instagram.com/yosoytaku/" class="button" onclick="return confirmLink(event, 'Instagram')"><i class="fab fa-instagram icon"></i>Instagram</a>
-            <a href="https://www.tiktok.com/@yosoytaku_" class="button" onclick="return confirmLink(event, 'TikTok')"><i class="fab fa-tiktok icon"></i>Tiktok</a>
-            <a href="https://discord.com/invite/3SBgEAJgVU" class="button" onclick="return confirmLink(event, 'Discord')"><i class="fab fa-discord icon"></i>Discord</a>
-            <a href="https://www.x.com/yosoytaku" class="button" onclick="return confirmLink(event, 'Twitter')"><i class="fab fa-twitter icon"></i>Twitter</a>
-            <a href="https://www.youtube.com/@YoSoyTaku" class="button" onclick="return confirmLink(event, 'YouTube')"><i class="fab fa-youtube icon"></i>YoSoyTaku</a>
-            <a href="https://www.youtube.com/@TakuClip" class="button" onclick="return confirmLink(event, 'YouTube')"><i class="fab fa-youtube icon"></i>TakuClip</a>
-        </div>
-        <p class="credit squeeze">Desarrollado por la besto dupla! (una IA y yo).</p>
-    </div>
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p id="modalDescription"></p>
-            <button class="confirm-button" onclick="proceed()">Listo!</button>
-        </div>
-    </div>
-    <iframe id="redirect" src="index.html" style="display: none;"></iframe>
-    <script>
-        function confirmLink(event, platform) {
-            event.preventDefault();
-            var modal = document.getElementById('confirmationModal');
-            var description = document.getElementById('modalDescription');
-            var mainContent = document.getElementById('mainContent');
-            description.innerHTML = "Voy a llevarte a mi " + platform + ". ¿De acuerdo?";
-            modal.style.display = "block";
-            mainContent.classList.add('hidden');
-            window.currentLink = event.currentTarget.href;
-            return false;
-        }
-        function closeModal() {
-            var modal = document.getElementById('confirmationModal');
-            var mainContent = document.getElementById('mainContent');
-            modal.style.display = "none";
-            mainContent.classList.remove('hidden');
-        }
-        function proceed() {
-            sessionStorage.setItem('visitedSocial', 'true');
-            window.open(window.currentLink, '_blank');
-            window.location.href = 'https://yosoytaku.github.io';
-        }
+  <main id="mainContent" class="container fade-in floating-container">
+    <h1>YoSoyTaku</h1>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('visitedSocial')) {
-                sessionStorage.removeItem('visitedSocial');
-                window.scrollTo(0, 0);
-            }
-        });
-        window.onclick = function(event) {
-            var modal = document.getElementById('confirmationModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-}
-<script>
+    <div class="pixel-art" role="img" aria-label="avatar de YoSoyTaku"></div>
+
+    <p>¡sígueme! :D</p>
+
+    <div class="links">
+      <a href="https://discord.com/invite/3SBgEAJgVU" class="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-discord icon" aria-hidden="true"></i>Discord
+      </a>
+
+      <a href="https://www.tiktok.com/@yosoytaku_" class="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-tiktok icon" aria-hidden="true"></i>Tiktok
+      </a>
+
+      <a href="https://www.instagram.com/yosoytaku/" class="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram icon" aria-hidden="true"></i>Instagram
+      </a>
+
+      <a href="https://www.youtube.com/@YoSoyTaku" class="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube icon" aria-hidden="true"></i>YoSoyTaku
+      </a>
+
+      <a href="https://www.youtube.com/@TakuClip" class="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube icon" aria-hidden="true"></i>TakuClip
+      </a>
+    </div>
+    <footer class="credits">
+      <p class="small-text">Mejorado con <i class="fas fa-heart" aria-hidden="true"></i> por <a href="https://github.com/modalesxd" target="_blank" rel="noopener noreferrer">modalesxd</a></p>
+  </main>
+</body>
+</html>
