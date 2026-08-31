@@ -1,294 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>YoSoyTaku</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>YoSoyTaku</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="YoSoyTaku — hub de redes sociales" />
 
-  <!-- Font Awesome y font -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="icon" href="tp.ico" type="image/x-icon">
-  <!-- CSS -->
-  <style>
-    /* ========== RESET + VARIABLES ========== */
-* {
-  box-sizing: border-box;
-}
-:root {
-  --bg-page: #000000;
-  --page-alpha: 0.85;
-  --panel-bg-1: hsl(0, 2%, 60%);
-  --panel-bg-2: #535151;
-  --panel-border: #363636;
-  --panel-border-2: #585757;
-  --accent: #ffffff;
-  --text: #ffffff;
-  --muted: #fffcfc;
-  --shadow-dark: rgba(0, 0, 0, 0.7);
-  --pixel-grain: rgba(0, 0, 0, 0.02);
-}
-
-/* básico */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Press Start 2P", cursive;
-  -webkit-font-smoothing: none;
-}
-body { 
-  background: linear-gradient(180deg, rgba(220,220,220,var(--page-alpha)) 0%, rgba(196,196,196,var(--page-alpha)) 100%);
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  text-align: center;
-}
-
-/* ========== TARJETA PRINCIPAL ========== */
-.container {
-  width: 80%;
-  max-width: none;
-  padding: 28px 20px;
-  border-radius: 18px;
-  background: linear-gradient(
-    180deg,
-    var(--panel-bg-1) 0%,
-    var(--panel-bg-2) 100%
-  );
-  border: 6px solid var(--panel-border);
-  box-shadow: 6px 6px 0 0 var(--panel-border-2),
-    14px 14px 20px var(--shadow-dark);
-  position: relative;
-  overflow: hidden;
-  margin: 0 16px; /* margen lateral */
-  box-sizing: border-box;
-}
-
-/* overlay pixel */
-.container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: repeating-linear-gradient(
-      0deg,
-      transparent 0 1px,
-      var(--pixel-grain) 1px 2px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 1px,
-      var(--pixel-grain) 1px 2px
-    );
-  opacity: 0.8;
-  mix-blend-mode: overlay;
-}
-
-/* título */
-h1 {
-  margin: 0 0 10px 0;
-  color: var(--text);
-  font-size: 1.9rem;
-  text-shadow: 3px 3px 0 #000, 6px 4px 0 #000;
-  letter-spacing: 0.02em;
-}
-
-/* texto */
-p {
-  margin: 10px 0 18px;
-  font-size: 1.02rem;
-  color: var(--text);
-  text-shadow: 2px 2px #000;
-}
-
-/* ========== AVATAR PIXELADO ========== */
-.pixel-art {
-  width: 150px;
-  height: 150px;
-  margin: 6px auto 18px;
-  border-radius: 50%;
-  background-image: url("pfp.gif");
-  background-size: cover;
-  background-position: center;
-  border: 6px solid var(--panel-border);
-  filter: grayscale(20%);
-  box-shadow: 6px 6px 0 0 var(--panel-border-2),
-    inset 0 -6px 12px rgba(0, 0, 0, 0.25);
-  image-rendering: pixelated;
-  transition: transform 140ms cubic-bezier(0.22, 0.9, 0.35, 1), filter 180ms;
-}
-.pixel-art:hover {
-  transform: translateY(-5px) scale(1.02);
-  filter: grayscale(30%);
-}
-
-/* ========== BOTONES PIXEL ========== */
-.links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.button {
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  padding: 12px 18px 10px;
-  padding-left: 22px;
-  background: var(--panel-border-2);
-  border-radius: 6px;
-  border: 2px solid #000;
-  box-shadow: 0 4px 0 0 #000, 4px 8px 12px rgba(0, 0, 0, 0.45);
-  text-decoration: none;
-  font-size: 0.92rem;
-  font-family: "Press Start 2P", cursive;
-  color: var(--text);
-  /* sombra pixel tipo título */
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
-  transition: transform 120ms ease, background-color 120ms;
-}
-
-/* pixel bevel */
-.button::before,
-.button::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
-  border-radius: 4px;
-  pointer-events: none;
-}
-.button::before {
-  transform: translate(-4px, -4px);
-  border: 2px solid rgba(255, 255, 255, 0.06);
-}
-.button::after {
-  transform: translate(4px, 4px);
-  border: 2px solid rgba(0, 0, 0, 0.45);
-}
-
-/* hover y active */
-.button:hover {
-  background: var(--accent);
-  color: #000;
-  text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
-  transform: translateY(-4px);
-}
-.button:active {
-  transform: translateY(0);
-}
-
-.button .icon {
-  margin-right: 10px;
-  opacity: 0.95;
-}
-
-/* ========== FOOTER ========== */
-.credits {
-  margin-top: 20px;
-  color: var(--muted);
-}
-.credits a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: bold;
-}   
-.credits a:hover {
-  text-decoration: underline;
-}
-.small-text {
-  font-size: 0.7rem;
-  margin: 0;
-}
-
-/* accesibilidad */
-.button:focus,
-.pixel-art:focus,
-.container:focus {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 600px) {
-  .container {
-    max-width: 100vw;
-    margin: 0 auto;
-    padding: 20px 12px;
-    border-radius: 14px;
-    margin: 0 12px;
-  }
-  h1 {
-    font-size: 1.3rem;
-  }
-  p {
-    font-size: 0.9rem;
-  }
-  .pixel-art {
-    width: 110px;
-    height: 110px;
-    border-width: 4px;
-  }
-  .button {
-    width: 100%;
-    max-width: 270px;
-    font-size: 0.85rem;
-    padding: 10px 14px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 80vw;
-    margin: 0 auto;
-  }
-  .button {
-    max-width: 320px;
-    width: 100%;
-  }
-}
-
-  </style>
-</head>
-<body>
-  <main id="mainContent" class="container fade-in floating-container">
-    <h1>YoSoyTaku</h1>
-
-    <div class="pixel-art" role="img" aria-label="avatar de YoSoyTaku"></div>
-
-    <p>¡sígueme! :D</p>
-
-    <div class="links">
-      <a href="https://discord.com/invite/3SBgEAJgVU" class="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-discord icon" aria-hidden="true"></i>Discord
-      </a>
-
-      <a href="https://www.tiktok.com/@yosoytaku_" class="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-tiktok icon" aria-hidden="true"></i>Tiktok
-      </a>
-
-      <a href="https://www.instagram.com/yosoytaku/" class="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram icon" aria-hidden="true"></i>Instagram
-      </a>
-
-      <a href="https://www.youtube.com/@YoSoyTaku" class="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube icon" aria-hidden="true"></i>YoSoyTaku
-      </a>
-
-      <a href="https://www.youtube.com/@TakuClip" class="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube icon" aria-hidden="true"></i>TakuClip
-      </a>
+    <!-- Font Awesome y font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="icon" href="img/tp.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="janedoe" aria-hidden="true">
+      <img src="img/janedoe.png" alt="Jane Doe" />
     </div>
-    <footer class="credits">
-      <p class="small-text">Mejorado con <i class="fas fa-heart" aria-hidden="true"></i> por <a href="https://github.com/modalesxd" target="_blank" rel="noopener noreferrer">modalesxd</a></p>
-  </main>
-</body>
+    <div class="janedoe2" aria-hidden="true">
+      <img src="img/janedoe2.png" alt="Jane Doe" />
+    </div>
+    <main class="window" id="mainContent">
+      <!-- Barra de dirección: sensación de "página web" -->
+      <div class="titlebar" aria-hidden="true">
+        <span class="urlbar"
+          ><i class="fas fa-lock"></i>yosoytaku.github.io</span
+        >
+      </div>
+
+      <div class="content">
+        <div class="profile">
+          <span
+            class="retro-avatar-frame"
+            style="--avatar-size: 140px; --avatar-border-color: #d10028"
+          >
+            <img
+              src="img/Takupfp.webp"
+              alt="YoSoyTaku"
+              class="retro-avatar no-hover"
+            />
+          </span>
+          <div class="profile-text">
+            <h1>YoSoyTaku</h1>
+            <p class="bio">
+              <span class="bio-text">Casado mentalmente con Jane Doe ❤️🐭</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="links">
+          <a
+            href="https://discord.gg/JyEypq93Nc"
+            class="button discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord icon" aria-hidden="true"></i>
+            <span class="label">Discord</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@yosoytaku_"
+            class="button tiktok"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-tiktok icon" aria-hidden="true"></i>
+            <span class="label">TikTok</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.kick.com/yosoytaku"
+            class="button kick"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-kickstarter icon" aria-hidden="true"></i>
+            <span class="label">Kick</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/takudumb/"
+            class="button instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram icon" aria-hidden="true"></i>
+            <span class="label">Instagram</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@YoSoyTaku"
+            class="button youtube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube icon" aria-hidden="true"></i>
+            <span class="label">YoSoyTaku</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@TakuClip"
+            class="button youtube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube icon" aria-hidden="true"></i>
+            <span class="label">TakuClip</span>
+            <i class="fas fa-arrow-right go" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <footer class="credits">
+          <p>
+            Mejorado con <i class="fas fa-heart" aria-hidden="true"></i> por
+            <a
+              href="https://github.com/modalesxd"
+              target="_blank"
+              rel="noopener noreferrer"
+              >modalesxd</a
+            >
+          </p>
+        </footer>
+      </div>
+    </main>
+  </body>
 </html>
